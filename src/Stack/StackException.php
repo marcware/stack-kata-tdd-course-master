@@ -14,6 +14,6 @@ class StackException extends \Exception
     public function __construct()
     {
         parent::__construct("Empty stack");
-        
+
     }
 }
