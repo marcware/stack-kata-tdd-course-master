@@ -4,6 +4,7 @@ use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
+use PHPUnit\Framework\TestCase;
 use Stack\StackException;
 
 /**
@@ -39,7 +40,8 @@ class FeatureContext implements Context
      */
     public function itShouldContainElements($count)
     {
-        PHPUnit_Framework_Assert::assertEquals($count,$this->stack->count());
+
+        TestCase::assertEquals($count,$this->stack->count());
     }
 
     /**
@@ -69,7 +71,7 @@ class FeatureContext implements Context
      */
     public function itShouldBe($data)
     {
-        PHPUnit_Framework_Assert::assertEquals($data, $this->pop);
+        TestCase::assertEquals($data, $this->pop);
     }
 
     /**
@@ -77,6 +79,6 @@ class FeatureContext implements Context
      */
     public function itShouldThrowException()
     {
-        PHPUnit_Framework_Assert::assertInstanceOf(StackException::class, $this->exception);
+        TestCase::assertInstanceOf(StackException::class, $this->exception);
     }
 }
